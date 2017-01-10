@@ -78,6 +78,12 @@ abstract class Base
         try {
             $kernel = $this->kernel;
 
+            $_GET = isset($request->get) ? $request->get : array();
+            $_POST = isset($request->post) ? $request->post : array();
+            $_COOKIE = isset($request->cookie) ? $request->cookie : array();
+            $_SERVER = isset($request->server) ? $request->server : array();
+            $_FILES = isset($request->files) ? $request->files : array();
+
             if (!$illuminate_request) {
                 $illuminate_request = $this->dealWithRequest($request);
             }
